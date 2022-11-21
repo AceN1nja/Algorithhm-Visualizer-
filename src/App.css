@@ -1,0 +1,254 @@
+.App {
+    text-align: center;
+    min-height: 100vh;
+    transition: 0.5s;
+    max-height: 100vh;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 10px;
+    height: 10%;
+}
+
+.header {
+    font-size: 40px;
+    flex-grow: 17;
+}
+
+.algorithm-container {
+    display: flex;
+    font-family: "JetBrains Mono Medium", sans-serif !important;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.reset-container {
+    display: flex;
+    font-family: "JetBrains Mono Medium", sans-serif !important;
+    flex-grow: 0.5;
+    justify-content: center;
+    align-items: center;
+}
+
+.algorithm-button {
+    border: 0;
+    font-size: 15px;
+    font-family: "JetBrains Mono Medium", sans-serif !important;
+    width:75%;
+    height:80%;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.reset-button {
+    border: 0;
+    font-size: 20px;
+    font-family: "JetBrains Mono Medium", sans-serif !important;
+    width:75%;
+    height:80%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.reset-button:hover {
+    transform: scale(1.1);
+}
+
+.algorithm-button:hover {
+    transform: scale(1.1);
+}
+
+.darkmode-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1.4;
+    justify-content: center;
+    align-items: center;
+}
+
+.darkmode-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background-color: #303030;
+    width: 70%;
+    height: 75%;
+    border-radius: 30px;
+}
+
+.darkmode-toggle {
+    position: relative;
+    background-color: #f7f6e9;
+    cursor: pointer;
+    translate: -1px;
+    height: 80%;
+    width: 45%;
+    border-radius: 100px;
+    transition: 1s;
+}
+
+.sun {
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+    translate: 42px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.moon {
+    position: absolute;
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+    translate: -13px 1px;
+}
+
+.darkmode-input {
+    opacity: 0;
+    width:0;
+    height: 0;
+}
+
+.darkmode-input:checked + .darkmode-toggle {
+    background-color: #fab800;
+    transform: translateX(30px);
+}
+
+.darkmode-input:checked + .darkmode-toggle + .sun {
+    opacity: 1;
+}
+
+.darkmode-input:checked + .darkmode-toggle .moon {
+    opacity: 0;
+}
+
+.map-container {
+    pointer-events: auto;
+    height: 90vh;
+    width: 90vh;
+    padding: 10px 10px 10px 25px;
+}
+
+.map {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(65, 1.5vw);
+    grid-template-rows: repeat(30, 1.5vw);
+}
+
+.node {
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: ghostwhite;
+    outline: 1px solid #303030;
+    transition: 0.1s;
+    font-size: 10px;
+    color: black;
+}
+
+.node:hover {
+    transform: scale(1.2);
+    border-radius: 5px;
+    background-color: yellow;
+}
+
+.node-start {
+    background-color: lightcoral;
+}
+
+.node-finish {
+    background-color: lightgreen;
+}
+
+.node-wall {
+    width: 100%;
+    height: 100%;
+    background-color: midnightblue;
+    outline: 1px solid midnightblue;
+}
+
+.node-shortest-path {
+    animation-name: shortestPath;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes shortestPath {
+    0% {
+        transform: scale(0.6);
+        background-color: limegreen;
+    }
+
+    50% {
+        transform: scale(1.2);
+        background-color: limegreen;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: limegreen;
+        outline: 0;
+    }
+}
+
+.node-visited {
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: rgba(0, 0, 66, 0.75);
+        border-radius: 100%;
+    }
+
+    50% {
+        background-color: rgba(17, 104, 217, 0.75);
+    }
+
+    75% {
+        transform: scale(1.2);
+        background-color: lightseagreen;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: lightseagreen;
+    }
+}
+
+img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+
+
